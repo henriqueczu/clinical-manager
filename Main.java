@@ -9,10 +9,10 @@ public class Main{
                 System.out.println("\n#### Clinical Manager Menu ####");
                 System.out.println("[1] Register a Doctor");
                 System.out.println("[2] List Doctor");
-                System.out.println("[3] Delete Appointment\n");
+                System.out.println("[3] Delete Doctor\n");
                 System.out.println("[4] Register a Patient");
                 System.out.println("[5] List Patient");
-                System.out.println("[6] Delete Appointment\n");
+                System.out.println("[6] Delete Patient\n");
                 System.out.println("[7] New Appointment");
                 System.out.println("[8] Delete Appointment");
                 System.out.println("[9] List Schedule\n");

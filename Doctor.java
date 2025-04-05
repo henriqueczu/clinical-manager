@@ -50,7 +50,7 @@ public class Doctor{
         System.out.print("Doctor number: ");
         int i = sc.nextInt();
 
-        System.out.println("Deleting appointment " + i);
+        System.out.println("Deleting doctor " + i);
         System.out.println(doctors.get(i-1));
 
         doctors.remove(i-1);

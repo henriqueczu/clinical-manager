@@ -66,11 +66,29 @@ public class Appointment{
     }
 
     public static void deleteAppointment(Scanner sc){
-        listAppointment();
+        int i = 0;
+        do { 
+            listAppointment();
 
-        System.out.println("\nChoose the appointment to delete");
-        System.out.print("Appointment number: ");
-        int i = sc.nextInt();
+            if(appointments.isEmpty()){
+                System.out.println("There is nothing here to delete");
+                return;
+            }
+            System.out.println("\nChoose the appointment to delete");
+            System.out.print("Appointment number: ");
+            
+            if(sc.hasNextInt()){
+                i = sc.nextInt();
+            }else{
+                System.out.println("Please, digit a number");
+                sc.next();
+                continue;
+            }
+
+            if(i <= 0 || i > appointments.size()){
+                System.out.println("Please, choose a number in the list range");
+            }
+        } while (i <= 0 || i > appointments.size());
 
         System.out.println("Deleting appointment " + i);
         System.out.println(appointments.get(i-1));

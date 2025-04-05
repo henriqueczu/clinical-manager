@@ -44,11 +44,29 @@ public class Doctor{
     }
 
     public static void deleteDoctor(Scanner sc){
-        listDoctor();
+        int i = 0;
+        do { 
+            listDoctor();
 
-        System.out.println("\nChoose the doctor to delete");
-        System.out.print("Doctor number: ");
-        int i = sc.nextInt();
+            if(doctors.isEmpty()){
+                System.out.println("There is nothing here to delete");
+                return;
+            }
+            System.out.println("\nChoose the doctor to delete");
+            System.out.print("Doctor number: ");
+            
+            if(sc.hasNextInt()){
+                i = sc.nextInt();
+            }else{
+                System.out.println("Please, digit a number");
+                sc.next();
+                continue;
+            }
+
+            if(i <= 0 || i > doctors.size()){
+                System.out.println("Please, choose a number in the list range");
+            }
+        } while (i <= 0 || i > doctors.size());
 
         System.out.println("Deleting doctor " + i);
         System.out.println(doctors.get(i-1));

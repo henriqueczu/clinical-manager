@@ -42,4 +42,17 @@ public class Doctor{
             i++;
         }
     }
+
+    public static void deleteDoctor(Scanner sc){
+        listDoctor();
+
+        System.out.println("\nChoose the doctor to delete");
+        System.out.print("Doctor number: ");
+        int i = sc.nextInt();
+
+        System.out.println("Deleting appointment " + i);
+        System.out.println(doctors.get(i-1));
+
+        doctors.remove(i-1);
+    }
 }

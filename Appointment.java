@@ -91,7 +91,6 @@ public class Appointment{
         } while (i <= 0 || i > appointments.size());
 
         System.out.println("Deleting appointment " + i);
-        System.out.println(appointments.get(i-1));
 
         appointments.remove(i-1);
     }

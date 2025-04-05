@@ -69,7 +69,6 @@ public class Doctor{
         } while (i <= 0 || i > doctors.size());
 
         System.out.println("Deleting doctor " + i);
-        System.out.println(doctors.get(i-1));
 
         doctors.remove(i-1);
     }

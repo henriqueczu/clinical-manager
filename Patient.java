@@ -41,4 +41,34 @@ public class Patient{
         }
     }
 
+    public static void deletePatient(Scanner sc){
+        int i = 0;
+        do { 
+            listPatient();
+
+            if(patients.isEmpty()){
+                System.out.println("There is nothing here to delete");
+                return;
+            }
+            System.out.println("\nChoose the patient to delete");
+            System.out.print("Patient number: ");
+            
+            if(sc.hasNextInt()){
+                i = sc.nextInt();
+            }else{
+                System.out.println("Please, digit a number");
+                sc.next();
+                continue;
+            }
+
+            if(i <= 0 || i > patients.size()){
+                System.out.println("Please, choose a number in the list range");
+            }
+        } while (i <= 0 || i > patients.size());
+
+        System.out.println("Deleting patient "+i);
+
+        patients.remove(i-1);
+    }
+
 }

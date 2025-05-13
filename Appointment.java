@@ -64,4 +64,34 @@ public class Appointment{
             System.out.println("Patient: "+appointment.patient.name+" \nDoctor: "+appointment.doctor.name+" \nDate: " +appointment.dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
         }
     }
+
+    public static void deleteAppointment(Scanner sc){
+        int i = 0;
+        do { 
+            listAppointment();
+
+            if(appointments.isEmpty()){
+                System.out.println("There is nothing here to delete");
+                return;
+            }
+            System.out.println("\nChoose the appointment to delete");
+            System.out.print("Appointment number: ");
+            
+            if(sc.hasNextInt()){
+                i = sc.nextInt();
+            }else{
+                System.out.println("Please, digit a number");
+                sc.next();
+                continue;
+            }
+
+            if(i <= 0 || i > appointments.size()){
+                System.out.println("Please, choose a number in the list range");
+            }
+        } while (i <= 0 || i > appointments.size());
+
+        System.out.println("Deleting appointment " + i);
+
+        appointments.remove(i-1);
+    }
 }

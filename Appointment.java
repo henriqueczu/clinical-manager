@@ -94,4 +94,57 @@ public class Appointment{
 
         appointments.remove(i-1);
     }
+
+        public static void deleteUserAppointment(String name, Integer type){
+        // type = 1 patient
+        // type = 2 doctor
+
+         ArrayList<Integer> appointmentsToDelete = new ArrayList<>();
+        if(type == 2){
+            appointmentsToDelete = getAppointmentByDoctor(name);
+        }else if(type == 1){
+            appointmentsToDelete = getAppointmentByPatient(name);
+        }
+
+        appointmentsToDelete.forEach((n) -> {
+            int i = n;
+            if(appointments.isEmpty()){
+                return;
+            }
+
+            if(i > appointments.size()){
+                return;
+            }
+
+            appointments.remove(i);
+        });
+
+        
+    }
+
+    public static ArrayList<Integer> getAppointmentByDoctor (String name){
+        ArrayList<Integer> doctorAppointments = new ArrayList<>();
+        int i = 0;
+        for(Appointment appointment : appointments){
+            if(appointment.doctor.name.contains(name)){
+                doctorAppointments.add(i);
+            }
+        i++;
+        }
+
+        return doctorAppointments;
+    }
+
+    public static ArrayList<Integer> getAppointmentByPatient (String name){
+        ArrayList<Integer> patientAppointments = new ArrayList<>();
+        int i = 0;
+        for(Appointment appointment : appointments){
+            if(appointment.patient.name.contains(name)){
+                patientAppointments.add(i);
+            }
+        i++;
+        }
+
+        return patientAppointments;
+    }
 }

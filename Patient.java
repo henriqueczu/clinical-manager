@@ -66,6 +66,11 @@ public class Patient{
             }
         } while (i <= 0 || i > patients.size());
 
+        System.out.println("Deleting patient appointments");
+        
+        Patient patient = patients.get(i-1);
+        Appointment.deleteUserAppointment(patient.name, 1);
+
         System.out.println("Deleting patient "+i);
 
         patients.remove(i-1);
